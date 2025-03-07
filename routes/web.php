@@ -42,6 +42,11 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('admin.dashboard');
 
+Route::get('/admin/add-user', function(){
+    return view('admin.addUser');
+});
+Route::post('/admin/add-user',[AuthController::class, 'addUser'])->name('addUser');
+
 Route::get('/pasteur/dashboard', function () {
     return view('pasteur.dashboard');
 })->middleware(['auth'])->name('pasteur.dashboard');

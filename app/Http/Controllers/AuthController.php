@@ -58,7 +58,6 @@ class AuthController extends Controller
     // Gérer l'inscription
     public function register(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -89,5 +88,28 @@ class AuthController extends Controller
             return redirect()->route('fidele.dashboard');
         }
     }
+
+    public function addUser(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'type' => 'nullable|in:1,2,3', // Type optionnel, valeurs autorisées : 1, 2, 3
+            'fonction' => 'required|in:Évangéliste, Pasteur, Diacre, Aucun',
+        ]);
+
+        // Créer l'utilisateur
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'type' => $request->type ?? 3, // Par défaut, Fidèle (3) si non spécifié
+            'fonction' => $request->fonction,
+        ]);
+        
+        echo "utilisateur ajoute avec succes";
+    }  
+
+    
 
 }

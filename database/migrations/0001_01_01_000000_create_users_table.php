@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->tinyInteger('type')->default(3); // 1 = Admin, 2 = Pasteur, 3 = Fidèle
-            $table->enum('fonction', ['Évangéliste', 'Pasteur', 'Diacre', 'Aucun'])->default('Aucun');
+            $table->string('fonction');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -1,3 +1,5 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="container d-flex justify-content-center mt-5">
     <div class="card shadow-lg" style="width: 40%;">
@@ -30,40 +32,26 @@
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
 
-                <!-- Mot de passe -->
-                <div class="mb-3">
-                    <label for="password" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-
-                <!-- Confirmer le mot de passe -->
-                <div class="mb-3">
-                    <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
-                </div>
-
-                <!-- Type d'utilisateur (Optionnel) -->
-                <div class="mb-3">
-                    <label for="type" class="form-label">Type d'utilisateur (optionnel)</label>
-                    <select class="form-select" id="type" name="type">
-                        <option value="">Sélectionner un rôle (facultatif)</option>
-                        <option value="1">Admin</option>
-                        <option value="2">Pasteur</option>
-                        <option value="3">Fidèle</option>
-                    </select>
-                </div>
-
                 <div class="mb-3">
                     <label for="fonction" class="form-label">Fonction</label>
                     <select class="form-select" id="fonction" name="fonction">
-                        <option value="Aucun">Aucun</option>
+                        <option value="Aucun">Fidèle</option>
                         <option value="Évangéliste">Évangéliste</option>
                         <option value="Pasteur">Pasteur</option>
                         <option value="Diacre">Diacre/Diaconesse</option>
                     </select>
                 </div>
 
-                <!-- Bouton -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                </div>
+
                 <div class="text-center">
                     <button type="submit" class="btn btn-success">S'inscrire</button>
                 </div>

@@ -29,8 +29,7 @@ Route::resource('predication', PredicationController::class)->names([
     'update' => 'predication.update'
 ]);
 
-
-
+Route::get('/create-admin',[AuthController::class, 'createAdmin']);
 // Authentification
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -45,16 +44,9 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/add-user', function(){
     return view('admin.addUser');
 });
+
 Route::post('/admin/add-user',[AuthController::class, 'addUser'])->name('addUser');
 
-Route::get('/pasteur/dashboard', function () {
-    return view('pasteur.dashboard');
-})->middleware(['auth'])->name('pasteur.dashboard');
-
-Route::get('/fidele/dashboard', function () {
-    return view('fidele.dashboard');
-})->middleware(['auth'])->name('fidele.dashboard');
-
-// L'inscription --------------
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::get('/utilisateur/dashboard', function () {
+    return view('utilisateur.dashboard');
+})->middleware(['auth'])->name('utilisateur.dashboard');

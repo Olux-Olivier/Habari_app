@@ -29,12 +29,10 @@ class AuthController extends Controller
             $user = Auth::user();
 
             // Redirection selon le type d'utilisateur
-            if ($user->type == 1) {
+            if ($user->email == 'presseushindi@gmail.com') {
                 return redirect()->route('admin.dashboard');
-            } elseif ($user->type == 2) {
-                return redirect()->route('pasteur.dashboard');
             } else {
-                return redirect()->route('fidele.dashboard');
+                return redirect()->route('utilisateur.dashboard');
             }
         }
 
@@ -55,47 +53,12 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    // Gérer l'inscription
-    public function register(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'type' => 'nullable|in:1,2,3', // Type optionnel, valeurs autorisées : 1, 2, 3
-            'fonction' => 'required|in:Évangéliste, Pasteur, Diacre, Aucun',
-        ]);
-
-        // Créer l'utilisateur
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'type' => $request->type ?? 3, // Par défaut, Fidèle (3) si non spécifié
-            'fonction' => $request->fonction,
-        ]);
-
-
-        // Connexion automatique après inscription
-        Auth::login($user);
-
-        // Redirection selon le rôle
-        if ($user->type == 1) {
-            return redirect()->route('admin.dashboard');
-        } elseif ($user->type == 2) {
-            return redirect()->route('pasteur.dashboard');
-        } else {
-            return redirect()->route('fidele.dashboard');
-        }
-    }
-
     public function addUser(Request $request){
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'type' => 'nullable|in:1,2,3', // Type optionnel, valeurs autorisées : 1, 2, 3
-            'fonction' => 'required|in:Évangéliste, Pasteur, Diacre, Aucun',
+            'fonction' => 'required',
         ]);
 
         // Créer l'utilisateur
@@ -103,13 +66,20 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'type' => $request->type ?? 3, // Par défaut, Fidèle (3) si non spécifié
             'fonction' => $request->fonction,
         ]);
-        
+
         echo "utilisateur ajoute avec succes";
-    }  
+    }
 
-    
+    public function createAdmin(){
 
+        $user = User::create([
+            'name' => 'Presse Ushindi',
+            'email' => 'presseushindi@gmail.com',
+            'password' => Hash::make('presseushindi'),
+            'fonction' => 'admin',
+        ]);
+        return to_route('login');
+    }
 }

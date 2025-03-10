@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    
+
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Admin Dashboard</a>
-            
+
             <!-- Profil et Déconnexion -->
             <div class="dropdown">
                 <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" role="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,9 +60,11 @@
             <div class="card-body">
                 <h4 class="text-center">Tâches Admin</h4>
                 <ul class="list-group mb-4">
+                    <li class="list-group-item"><a href="{{ url('/admin/add-user') }}" class="text-decoration-none">📜 Ajouter un utilisateur</a></li>
                     <li class="list-group-item"><a href="#" class="text-decoration-none">📅 Publier un événement</a></li>
                     <li class="list-group-item"><a href="{{ url('/predication/create') }}" class="text-decoration-none">📖 Publier une prédication</a></li>
                     <li class="list-group-item"><a href="{{ url('/predication') }}" class="text-decoration-none">📜 Toutes les prédications</a></li>
+
                 </ul>
             </div>
         </div>

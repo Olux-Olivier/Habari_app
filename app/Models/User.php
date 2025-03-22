@@ -23,6 +23,9 @@ class User extends Authenticatable
         'type',
         'password',
         'fonction',
+        'commune',
+        'quartier',
+        'dateNaissance',
     ];
 
     /**

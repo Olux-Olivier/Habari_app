@@ -43,6 +43,27 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="commune" class="form-label">Commune</label>
+                    <select class="form-select" id="commune" name="commune">
+                        <option value="kenya">Kenya</option>
+                        <option value="katuba">Katuba</option>
+                        <option value="annexe">Annexe</option>
+                        <option value="ruashi">Ruashi</option>
+                        <option value="kamalondo">Kamalondo</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="quartier" class="form-label">Quartier</label>
+                    <input type="text" class="form-control" id="quartier" name="quartier" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="dateNaissance" class="form-label">Date Naissance</label>
+                    <input type="date" class="form-control" id="dateNaissanc" name="dateNaissance" required>
+                </div>
+
+                <div class="mb-3">
                     <label for="password" class="form-label">Mot de passe</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>

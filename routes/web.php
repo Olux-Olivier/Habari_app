@@ -29,6 +29,15 @@ Route::resource('predication', PredicationController::class)->names([
     'update' => 'predication.update'
 ]);
 
+Route::resource('user', AuthController::class)->names([
+    'index' => 'user.index',
+    'create' => 'user.create',
+    'show'=> 'user.show',
+    'edit' => 'user.edit',
+    'update' => 'user.update'
+]);
+
+//
 Route::get('/create-admin',[AuthController::class, 'createAdmin']);
 // Authentification
 

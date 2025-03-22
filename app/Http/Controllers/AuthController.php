@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function index()
+    {
+        // Récupérer tous les utilisateurs sauf l'admin avec l'email spécifique
+        $users = User::where('email', '!=', 'presseushindi@gmail.com')->get();
+
+        // Retourner la vue avec la liste des utilisateurs
+        return view('utilisateur.liste-utilisateur', compact('users'));
+    }
+
     // Afficher le formulaire de connexion
     public function showLoginForm()
     {
@@ -59,6 +68,9 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'fonction' => 'required',
+            'commune' => 'required|string|max:255',
+            'quartier' => 'required|string|max:255',
+            'dateNaissance' => 'required',
         ]);
 
         // Créer l'utilisateur
@@ -67,9 +79,12 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'fonction' => $request->fonction,
+            'commune' => $request->commune,
+            'quartier' => $request->quartier,
+            'dateNaissance' => $request->dateNaissance,
         ]);
 
-        echo "utilisateur ajoute avec succes";
+        return to_route('user.index');
     }
 
     public function createAdmin(){
@@ -81,5 +96,20 @@ class AuthController extends Controller
             'fonction' => 'admin',
         ]);
         return to_route('login');
+    }
+
+    public function edit()
+    {
+        //
+    }
+
+    public function update()
+    {
+        //
+    }
+
+    public function delete()
+    {
+        //
     }
 }

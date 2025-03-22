@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('fonction');
+            $table->string('commune')->default('kenya');
+            $table->string('quartier')->default('luapula');
+            $table->date('dateNaissance')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

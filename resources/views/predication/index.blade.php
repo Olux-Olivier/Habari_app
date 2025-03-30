@@ -21,7 +21,7 @@
                     <img src="{{ asset('storage/' . $predication->photo) }}" class="card-img-top" alt="Image de la prédication" style="height: 200px; object-fit: cover;">
 
                     <div class="card-body">
-                        <h5 class="card-title">{{ $predication->categorie }}</h5> 
+                        <h5 class="card-title">{{ $predication->categorie }}</h5>
                         <span>Publiée le {{ $predication->created_at->format('d/m/Y H:i') }}</span><br><br>
                         <a href="{{ route('predication.show', $predication->id) }}" class="btn btn-primary">Voir Détails</a>
                     </div>
@@ -30,6 +30,7 @@
         @endforeach
     </div>
     <a href="{{ url('/predication/create') }}">Publier</a>
+    <a href="{{route('admin.dashboard')}}">Dashboard</a>
 
     @if($predications->isEmpty())
         <p class="text-center text-muted">Aucune prédication disponible pour le moment.</p>

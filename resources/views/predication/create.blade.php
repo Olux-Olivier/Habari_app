@@ -19,7 +19,7 @@
                 @csrf
 
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                
+
 
                 <div class="mb-3">
                     <label for="predicateur" class="form-label">Prédicateur</label>
@@ -27,7 +27,7 @@
                         <option value="">Sélectionner un prédicateur</option>
                         @foreach($users as $user)
                             @if($user->fonction != 'Aucun')
-                                <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->fonction }})</option>
+                                <option value="{{ $user->name }}">{{ $user->name }} ({{ $user->fonction }})</option>
                             @endif
                         @endforeach
                     </select>

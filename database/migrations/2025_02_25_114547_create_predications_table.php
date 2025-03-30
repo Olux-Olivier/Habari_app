@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up() {
         Schema::create('predications', function (Blueprint $table) {
             $table->id();
-            $table->integer('predicateur');
+            $table->text('predicateur');
             $table->string('titre');
             $table->text('description');
             $table->enum('categorie', ['enseignement', 'exhortation', 'témoignage']);

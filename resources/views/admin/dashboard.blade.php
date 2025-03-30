@@ -60,10 +60,12 @@
             <div class="card-body">
                 <h4 class="text-center">Tâches Admin</h4>
                 <ul class="list-group mb-4">
-                    <li class="list-group-item"><a href="{{ url('/admin/add-user') }}" class="text-decoration-none">📜 Ajouter un utilisateur</a></li>
+                    <li class="list-group-item"><a href="{{ url('/admin/add-user') }}" class="text-decoration-none">📜 Ajouter un fidèle</a></li>
                     <li class="list-group-item"><a href="#" class="text-decoration-none">📅 Publier un événement</a></li>
                     <li class="list-group-item"><a href="{{ url('/predication/create') }}" class="text-decoration-none">📖 Publier une prédication</a></li>
                     <li class="list-group-item"><a href="{{ url('/predication') }}" class="text-decoration-none">📜 Toutes les prédications</a></li>
+                    <li class="list-group-item"><a href="{{ url('/evenement') }}" class="text-decoration-none">📜 Tous les événements</a></li>
+                    <li class="list-group-item"><a href="{{ url('/user') }}" class="text-decoration-none">📜 Tous les fidèles</a></li>
 
                 </ul>
             </div>

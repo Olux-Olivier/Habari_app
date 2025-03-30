@@ -55,13 +55,14 @@
                     @endforeach
                 </tbody>
             </table>
+            <a href="{{route('addUser')}}">Ajouter compte</a>
+            <a href="{{route('admin.dashboard')}}">Dashboard</a>
         </div>
+
     </div>
     @if($users->isEmpty())
         <p class="text-center text-muted">Aucun utilisateur disponible.</p>
     @endif
 </div>
-
-
 </body>
 </html>

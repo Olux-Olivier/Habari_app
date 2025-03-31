@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,12 +22,8 @@
                 <thead class="table-dark">
                     <tr>
                         <th>Nom</th>
-                        <th>Email</th>
-                        <th>Type</th>
                         <th>Fonction</th>
-                        <th>Commune</th>
-                        <th>Quartier</th>
-                        <th>Date de Naissance</th>
+                        <th>Genre</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -35,34 +31,26 @@
                     @foreach($users as $user)
                         <tr>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->type == 1 ? 'Admin' : ($user->type == 2 ? 'Pasteur' : 'Fidèle') }}</td>
                             <td>{{ $user->fonction ?? 'Aucun' }}</td>
-                            <td>{{ $user->commune }}</td>
-                            <td>{{ $user->quartier }}</td>
-                            <td>{{ $user->dateNaissance }}</td>
+                            <td>{{ $user->genre ?? '-' }}</td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-sm">
-                                    ✏ Modifier
+                                <a href="#" class="btn btn-info btn-sm">
+                                    👁 Voir plus
                                 </a>
-                                <form action="#" method="POST" class="d-inline" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">🗑 Supprimer</button>
-                                </form>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            <a href="{{route('addUser')}}">Ajouter compte</a>
-            <a href="{{route('admin.dashboard')}}">Dashboard</a>
+            <a href="{{ route('addUser') }}" class="btn btn-success mt-3">Ajouter un compte</a>
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary mt-3">Dashboard</a>
         </div>
-
     </div>
+
     @if($users->isEmpty())
         <p class="text-center text-muted">Aucun utilisateur disponible.</p>
     @endif
 </div>
+
 </body>
 </html>

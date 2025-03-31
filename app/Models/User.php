@@ -25,6 +25,7 @@ class User extends Authenticatable
         'fonction',
         'commune',
         'quartier',
+        'genre',
         'dateNaissance',
     ];
 

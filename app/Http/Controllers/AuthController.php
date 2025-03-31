@@ -70,6 +70,7 @@ class AuthController extends Controller
             'fonction' => 'required',
             'commune' => 'required|string|max:255',
             'quartier' => 'required|string|max:255',
+            'genre' => 'required',
             'dateNaissance' => 'required',
         ]);
 
@@ -81,6 +82,7 @@ class AuthController extends Controller
             'fonction' => $request->fonction,
             'commune' => $request->commune,
             'quartier' => $request->quartier,
+            'genre' => $request->genre,
             'dateNaissance' => $request->dateNaissance,
         ]);
 

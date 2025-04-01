@@ -63,6 +63,7 @@ class AuthController extends Controller
     }
 
     public function addUser(Request $request){
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -70,6 +71,10 @@ class AuthController extends Controller
             'fonction' => 'required',
             'commune' => 'required|string|max:255',
             'quartier' => 'required|string|max:255',
+            'telephone' => 'required',
+            'status_scolaire' => 'required',
+            'etat_civil' => 'required|string|max:255',
+            'nationalite' => 'required|string|max:255',
             'genre' => 'required',
             'dateNaissance' => 'required',
         ]);
@@ -82,11 +87,26 @@ class AuthController extends Controller
             'fonction' => $request->fonction,
             'commune' => $request->commune,
             'quartier' => $request->quartier,
+            'telephone' => $request->telephone,
+            'status_scolaire' => $request->status_scolaire,
+            'etat_civil' => $request->etat_civil,
+            'nationalite' => $request->nationalite,
             'genre' => $request->genre,
             'dateNaissance' => $request->dateNaissance,
         ]);
 
-        return to_route('user.index');
+        if ($errors = $request->session()->get('errors')) {
+            dd($errors->all());
+        }
+
+        if (!$user->save()) {
+            dd('Erreur lors de l\'enregistrement !');
+        }
+        else{
+            return to_route('user.index');
+        }
+
+
     }
 
     public function createAdmin(){
@@ -98,6 +118,13 @@ class AuthController extends Controller
             'fonction' => 'admin',
         ]);
         return to_route('login');
+    }
+
+    // details utilisateur
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        return view('utilisateur.show', compact('user'));
     }
 
     public function edit()

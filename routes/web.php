@@ -33,6 +33,7 @@ Route::resource('user', AuthController::class)->names([
     'index' => 'user.index',
     'create' => 'user.create',
     'show'=> 'user.show',
+    'delete' => 'user.delete',
     'edit' => 'user.edit',
     'update' => 'user.update'
 ]);

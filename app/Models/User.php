@@ -25,6 +25,10 @@ class User extends Authenticatable
         'fonction',
         'commune',
         'quartier',
+        'telephone',
+        'status_scolaire',
+        'etat_civil',
+        'nationalite',
         'genre',
         'dateNaissance',
     ];

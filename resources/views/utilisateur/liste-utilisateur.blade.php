@@ -34,7 +34,7 @@
                             <td>{{ $user->fonction ?? 'Aucun' }}</td>
                             <td>{{ $user->genre ?? '-' }}</td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm">
+                                <a href="{{ route('user.show', $user->id) }}" class="btn btn-info btn-sm">
                                     👁 Voir plus
                                 </a>
                             </td>

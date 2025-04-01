@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('fonction');
             $table->string('commune')->default('kenya');
             $table->string('quartier')->default('luapula');
+            $table->string('telephone')->default('0991511081');
+            $table->string('status_scolaire')->default('Etudiant');
+            $table->string('etat_civil')->default('Célibataire');
+            $table->string('nationalite')->default('Congolaise');
             $table->string('genre')->default('Nul');
             $table->date('dateNaissance')->nullable();
             $table->timestamp('email_verified_at')->nullable();

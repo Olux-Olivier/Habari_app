@@ -14,6 +14,15 @@
         </div>
         <div class="card-body">
             <form method="POST" action="{{ route('addUser') }}">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 @csrf
                 <div class="row g-3">
                     <!-- Nom -->
@@ -109,6 +118,19 @@
                         <label for="nationalite" class="form-label">Nationalité</label>
                         <input type="text" class="form-control" id="nationalite" name="nationalite" required>
                     </div>
+
+                    <!-- Mot de passe -->
+                    <div class="col-md-4">
+                        <label for="password" class="form-label">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+
+                    <!-- Confirmation du mot de passe -->
+                    <div class="col-md-4">
+                        <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+                    </div>
+
                 </div>
 
                 <div class="text-center mt-4">

@@ -12,10 +12,12 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #007bff;
+            border: 6px solid #fff; /* Ajouter une bordure blanche comme sur Facebook */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre douce */
             display: block;
             margin: 0 auto;
         }
+
         .info-box {
             background: #f8f9fa;
             padding: 15px;
@@ -46,7 +48,7 @@
             </div>
             <div class="col-md-4">
                 <div class="info-box"><strong>État civil:</strong> {{ $user->etat_civil }}</div>
-                <div class="info-box"><strong>Statut scolaire:</strong> {{ $user->statut_scolaire }}</div>
+                <div class="info-box"><strong>Statut scolaire:</strong> {{ $user->status_scolaire }}</div>
                 <div class="info-box"><strong>Date de naissance:</strong> {{ $user->dateNaissance }}</div>
             </div>
         </div>
